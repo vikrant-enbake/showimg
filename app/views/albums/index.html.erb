@@ -1,0 +1,58 @@
+<div class="table-responsive">
+<% if @albums.count==0 %>
+	<h1>Sorry no Album to Show</h1>
+<% else %>
+
+<table class="table table-hover table-bordered">
+	<tr class="bg-white">
+		<th>
+			<p>#</p>
+		</th>
+		<th>
+			<p>ID</p>
+		</th>
+		<th>
+			<p>album name</p>
+		</th>
+		<th>
+			<p> description</p>
+		</th>
+		<th>
+			<p>actions </p>
+		</th>
+		<th>
+			<p>images</p>
+		</th>
+
+	</tr>
+
+	
+	<% @albums.each do |album|%>
+
+	<tr>
+		<td >
+			<%= '=>' %>
+		</td>
+		<td>
+			<p><%= album.id %></p>
+		</td>
+		<td>
+			<p><%= album.name %></p>
+		</td>
+		<td>
+			<p><%= album.description %></p></p>
+		</td>
+		<td>
+			<div class="btn-group"><%=link_to 'edit',edit_album_path(album) , :class => 'btn btn-success'%> <%=link_to 'delete', album_path(album), :method => :delete , :class => 'btn btn-danger' %></div>
+		</td>
+		<td>
+			<p><%= album.pics.count %>/<%=link_to 'view',album_path(album) , :class => 'btn btn-info' %></p></p>
+		</td>
+	</tr>
+	<% end %>
+</table>
+<center> <%= paginate @albums %>  </center>
+<%= link_to "delete all", delete_all_albums_path , :class => 'btn btn-danger' %> </p>
+<% end %>
+</div>
+

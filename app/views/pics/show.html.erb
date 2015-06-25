@@ -1,0 +1,26 @@
+<P> <%=  @pic.avatar_file_name %></p>
+<p><%=  @pic.avatar_file_size %></p>
+<p><%=  @pic.avatar_content_type %></P>
+<p><%=  @pic.avatar_updated_at %></p>
+<p><%= image_tag @pic.avatar.url(:medium) %></P>
+<p><%=  @pic.avatar_content_type %></P>
+	<% if @pic.tags %>
+ <% @pic.tags.each do |t| %> 
+ 	<p>#<%= t.name  %> </p>
+ <% end %>
+
+<% end %>
+
+
+<p>delete all pics      <%= link_to "delete_all", delete_all_pics_path %> </p>
+<p>create new album      <%= link_to "new", new_album_path %> </p>
+<p>show all albums      <%= link_to "show", albums_path %> </p>
+<p>Go Home      <%= link_to "SafeHome", root_path %> </p>
+<p>Upload more pics <%= link_to "Upload", new_pic_path %> </p>
+
+<p>you are logged in as <%= current_user.email %>
+<%= link_to "Sign out", destroy_user_session_path, :method => :delete %> </p>
+
+
+
+<p><%=link_to 'view',pic_path(@pic) %>/<%=link_to 'edit',edit_pic_path(@pic) %>/<%=link_to 'delete', pic_path(@pic), :method => :delete %></p>

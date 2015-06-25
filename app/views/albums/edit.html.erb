@@ -1,0 +1,45 @@
+<h1>create new album</h1>
+
+<%= form_for @album do |f| %>
+<% if @album.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@album.errors.count, "error") %> prohibited
+        this album from being saved:
+      </h2>
+      <ul>
+        <% @album.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+   <p>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </p>
+  <p>
+       <%= f.fields_for :pics do |p|   %>
+     <p>
+    <%= p.label :name %>
+    <%= p.text_field :name %>
+  
+      <%= p.file_field :avatar %>
+    </p>
+  <% end %>
+  </p>
+  <p>
+  	<%= f.submit %>
+  </p>
+
+<%end%>
+
+
+<p>you are logged in as <%= current_user.email %>
+<%= link_to "Sign out", destroy_user_session_path, :method => :delete %> </p>
+

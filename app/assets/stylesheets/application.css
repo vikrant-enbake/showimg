@@ -1,0 +1,117 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require bootstrap_and_overrides
+ */
+
+
+
+/*background styling */
+#body-bg-image 
+{
+	/background: transparent url("backgrounds/main-background.jpg") repeat fixed 0% 0% / 100% 100%;
+	background-color: #87ceeb;
+}
+#body-bg-image 
+{
+	
+}
+#body-bg-image .well
+{
+	
+}
+
+/*file browse button style */
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+input[readonly] {
+  background-color: white !important;
+  cursor: text !important;
+}
+
+/*remove buttons */
+.no-signupbtn .signupbtn
+{
+	display:none;
+}
+
+/* Slider styling */
+.custom-slider-wrapre
+{
+	background: url("/images/1966.jpg") 0 0/100% 100% no-repeat;
+	width:620px;
+	height: 340px;
+	/border-radius: 10px;
+    box-shadow:0px 0px 17px 3px #fff;
+}
+
+
+/*Page styling*/
+
+.c-container
+{
+	  margin-top: 15px;
+}
+
+.navbar-default.c-navbar
+{
+	background-color: transparent;
+	color:white;
+	margin-bottom: 0px;
+	/border-radius: 30px 30px 0px 0px;
+}
+.navbar-default.c-navbar .navbar-nav>li>a
+{
+	color:white;
+}
+.c-wrapper
+{
+	background-color: #f7c791;
+}
+
+/*Menu bar*/
+.navbar-default.c-navbar .navbar-nav>li
+{
+    transform: skewX(25deg);
+  /* background-image: -webkit-gradient(linear,left top, left bottom,from(#fefefe), color-stop(0.5,#f0f0f0), color-stop(0.51, #e6e6e6)); */
+  background-image: -moz-linear-gradient(#F2353B 0%, #CD2C31 50%, #BA282D 51%);
+  background-image: -o-linear-gradient(#F2353B 0%, #CD2C31 50%, #BA282D 51%);
+  background-image: -ms-linear-gradient(#F2353B 0%, #CD2C31 50%, #BA282D 51%);
+  background-image: linear-gradient(#F2353B 0%, #CD2C31 50%, #BA282D 51%);
+  border-right: 1px solid rgba(9, 9, 9, 0.125);
+}
+
+.navbar-default.c-navbar .navbar-nav>li:after {
+}
+
+.navbar-default.c-navbar .navbar-nav>li:hover:after, .navbar-default.c-navbar .navbar-nav>li.selected:after, .navbar-default.c-navbar .navbar-nav>li:target:after {
+  opacity: 1;
+}

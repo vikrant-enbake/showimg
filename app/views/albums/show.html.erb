@@ -1,0 +1,44 @@
+<p>created album</p>
+<table>
+	<tr>
+		<th>
+			<p>name</p>
+		</th>
+		<th>
+			<p>description</p>
+		</th>
+		<th>
+			<p>Pics</p>
+		</th>
+		<th></th>
+		<th></th>
+	</tr>
+	<tr>
+
+		<td> 
+			<p>	<%= @album.name %> </p>
+		</td>
+		<td>	
+			<p> <%= @album.description %> </p>
+		</td>
+		<td>
+			<% @album.pics.each do |p| %>
+			   <a href=" <%= pic_path(p.id)  %> "><%=image_tag p.avatar.url(:thumb) %></a>
+
+			 <% end %>
+		</td>
+		<td>
+			<p><%=link_to 'view',album_path(@album) %>/<%=link_to 'edit',edit_album_path(@album) %>/<%=link_to 'delete', album_path(@album), :method => :delete %></p>
+		</td>
+	</tr>
+</table>
+<p>create new album      <%= link_to "new", new_album_path %> </p>
+<p>show all albums      <%= link_to "show", albums_path %> </p>
+<p>Go Home      <%= link_to "SafeHome", root_path %> </p>
+<p>Upload pics <%= link_to "Upload", new_pic_path %> </p>
+
+<p>you are logged in as <%= current_user.email %>
+<%= link_to "Sign out", destroy_user_session_path, :method => :delete %> </p>
+
+
+

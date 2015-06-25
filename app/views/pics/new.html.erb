@@ -1,0 +1,41 @@
+<h1>Upload pic</h1>
+<%= session[:current_album_id] %>
+<%= form_for @pic ,:html => { :multipart => true }  do |f| %>
+<% if @pic.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@pic.errors.count, "error") %> prohibited
+        this pic from being saved:
+      </h2>
+      <ul>
+        <% @pic.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+   <p>
+    <%= f.label :desc %><br>
+    <%= f.text_area :desc %>
+  </p>
+   <P><%= f.file_field :avatar %></P>
+  
+  <p>
+    
+    <%= f.hidden_field :album_id,:value => session[:current_album_id] %>
+  </p>
+  <p>
+  	<%= f.submit %>
+  </p>
+ 
+
+<%end%>
+
+
+<p>you are logged in as <%= current_user.email %>
+<%= link_to "Sign out", destroy_user_session_path, :method => :delete %> </p>
