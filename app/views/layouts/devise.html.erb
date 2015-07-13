@@ -36,60 +36,37 @@
 
     <%= javascript_include_tag "application" %>
   </head>
-  <body id="body-bg-image">
-    <div class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">Showimg</a>
-        <div class="navbar-collapse collapse navbar-responsive-collapse">
-          <ul class="nav navbar-nav top-nav-custom">
-            <li><%= link_to "Home", root_path %></li>
-            <li><%= link_to "Creat Album", new_album_path %></li>
-            <li><%= link_to 'Back', :back %></li>
-            <li><%= link_to "Show Albums", albums_path %></li>
-          </ul>
-        </div>
-        <div class="col-md-5 pull-right">
-          <% if user_signed_in? %>
-            <p class="bg-success padding-15 color-black bg-shadow">you are logged in as <%= current_user.email %>
-            <%= link_to "Sign out", destroy_user_session_path, :method => :delete %> </p>
-          <% else %>
-            <%= form_for(resource, as: resource_name, url: session_path(resource_name),:html => {:class => 'form-inline no-signupbtn'}) do |f| %>
-              <div class="form-group">
-                <%= f.label :email,:class => 'sr-only' %>
-                <%= f.email_field :email, autofocus: true,:class => 'form-control',:placeholder => 'email' %>
+  <body  id="body-bg-image">
+    <div class="container c-container">
+      <div class="row c-top-bar">
+        <% if user_signed_in? %>
+          <div class="navbar navbar-default navbar-static-top c-navbar">
+            <div class="container">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>            
+              <div class="navbar-collapse collapse navbar-responsive-collapse">
+                <ul class="nav navbar-nav top-nav-custom">
+                  <li class="active"><%= link_to "Home", root_path %></li>
+                  <li><%= link_to "Creat Album", new_album_path %></li>
+                  <li><%= link_to 'Back', :back %></li>
+                  <li><%= link_to "Show Albums", albums_path %></li>
+                </ul>
               </div>
-
-              <div class="form-group">
-                <%= f.label :password ,:class => 'sr-only'%>
-                <%= f.password_field :password, autocomplete: "off",:class => 'form-control',:placeholder => 'password' %>
-              </div>
-              <%= f.submit "Log in",:class => 'btn btn-primary' %>    
-                <div class="row">
-                  <div class="col-md-5">
-                    <% if devise_mapping.rememberable? -%>
-                      <div class="form-group">
-                        <%= f.check_box :remember_me %>
-                        <%= f.label :remember_me %>
-                      </div>
-                    <% end -%>
-                  </div>
-                  <div class="col-md-6">
-                    <%= render "users/shared/links" %>
-                  </div>
-                </div>
-            <% end %>
-          <% end %>
-        </div>
+            </div>
+          </div>
+        <% else %>
+          <div class="col-md-6">
+            <a class="navbar-brand" href="#">Showimg</a>
+          </div>
+          <div class="col-md-6 pull-right">
+            <%= render "users/sessions/form"  %>
+          </div>
+        <%end%>
       </div>
-    </div>
-
-    <div class="container">
-      <div class="row">
+      <div class="row c-wraper">
         <div class="col-lg-9">
           <%= bootstrap_flash %>
           <%= yield %>
@@ -105,13 +82,14 @@
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
-      </div><!--/row-->
-
-      <footer>
-        <p>&copy; Company 2015</p>
-      </footer>
-
-    </div> <!-- /container -->
-
+      </div>
+      <div class="row c-footer">
+        <div class="col-md-12">
+          <footer>
+            <p>&copy; Company 2015</p>
+          </footer>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

@@ -6,12 +6,12 @@
 <p><%=  @pic.avatar_content_type %></P>
 	<% if @pic.tags %>
  <% @pic.tags.each do |t| %> 
- 	<p>#<%= t.name  %> </p>
+ 	<a href="#">#<%= t.name  %></a> 
  <% end %>
 
 <% end %>
 
-
+<%= link_to "Current album", album_path(session[:current_album_id]) %>
 <p>delete all pics      <%= link_to "delete_all", delete_all_pics_path %> </p>
 <p>create new album      <%= link_to "new", new_album_path %> </p>
 <p>show all albums      <%= link_to "show", albums_path %> </p>

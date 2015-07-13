@@ -20,14 +20,14 @@
 
 
 
-  	function add() {
-
-		var no = $("#pic p").length
-		$('#pic').append('<p id="'+no+'"><label for="album_pics_attributes_' + no + '_name">Name</label><input name="album[pics_attributes]['+no+'][name]" id="album_pics_attributes_' + no + '_name" type="text"><input name="album[pics_attributes]['+ no + '][avatar]" id="album_pics_attributes_' + no + '_avatar" type="file"><label for="album_pics_attributes_'+no+'_tags_attributes_0_tag_name">Tag name</label> <input name="album[pics_attributes]'+no+'[tags_attributes][0][name]" id="album_pics_attributes_'+no+'_tags_attributes_0_name" type="text"> </p>')   
-	}	
+  function add() {
+    var no = $("#pic>div").length
+    var index=no+1;
+    $('#pic').append('<div class="col-md-4"><legend>'+index+'</legend><div class="form-group"><label class="col-sm-4 control-label" for="album_pics_attributes_'+no+'_Pic_name">Pic name</label><div class="col-sm-8"><input class="form-control" type="text" name="album[pics_attributes]['+ no + '][name]" id="album_pics_attributes_'+no+'_name"></div></div><input class="form-control" type="file" name="album[pics_attributes]['+no+'][avatar]" id="album_pics_attributes_'+no+'_avatar"><input placeholder="Tags separated with comma" class="form-control" type="text" value="" name="album[pics_attributes]['+no+'][all_tags]" id="album_pics_attributes_'+no+'_all_tags"></div>')
+  }
 
 	function remov() {
-		$('#pic p:last').remove();
+		$('#pic>div:last').remove();
 	}
 
 $(document).on('change', '.btn-file :file', function() {

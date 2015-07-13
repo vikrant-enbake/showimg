@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   
   get 'welcome/index'
+  get 'welcome/new'
 
   devise_for :users, controllers: {
         sessions: 'users/sessions'
